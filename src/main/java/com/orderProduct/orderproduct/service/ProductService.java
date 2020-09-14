@@ -25,4 +25,10 @@ public class ProductService {
     public Product saveProduct(Product product) {
         return productRepository.save(product);
     }
+    public ProductDto getOneProduct(Long id) {
+        return productMapper.convertProductDto(productRepository.getOne(id));
+    }
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
+    }
 }

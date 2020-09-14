@@ -17,28 +17,31 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+<jsp:include page="../navbar.jsp"></jsp:include>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
+<c:set var="view" value="${idView}" />
 
 <div class="container">
     <%--@elvariable id="product" type="aj"--%>
-    <form:form action="${ctx}/product/${action}" method="post" class="form" modelAttribute="product">
-
+    <form:form action="${ctx}/product/save" method="post" class="form" modelAttribute="product">
+        <div class="form-group">
+            <label for="name">ID</label>
+            <input type="text" name="productId" id="id" ${view} value="${product.getProductId()}">
+        </div>
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" placeholder="product name" value="${product.getName()}">
         </div>
         <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" placeholder="price" value="${product.getPrice()}">
+        </div>
+        <div class="form-group">
             <label for="description">Description</label>
             <textarea class="form-control" id="description" placeholder="description" name="description" rows="3">${product.getDescription()}</textarea>
         </div>
-        <div class="form-group">
-            <label for="price">Price</label>
-            <input type="number" name="price" id="price" placeholder="price" value="${employee.getPrice()}">
-        </div>
-
         <input type="submit" class="btn btn-success" value="Submit">
     </form:form>
 </div>
-
 </body>
 </html>

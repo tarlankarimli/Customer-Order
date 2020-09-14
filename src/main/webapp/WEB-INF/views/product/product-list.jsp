@@ -8,8 +8,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .bg-color {
+            background: rgba(116, 211, 248, 0.215);
+        }
+    </style>
 </head>
-<body>
+<body class=" bg-color">
 <jsp:include page="../navbar.jsp"></jsp:include>
 <div class="container-fluid">
             <div class="row">
@@ -25,7 +30,7 @@
                             <a href="#" class="btn btn-primary">Add to cart</a>
                         </div>
                         <div class="card-footer text-muted">
-                            ${product.getCreated()}
+                            ${product.getUpdated()}
                         </div>
                     </div>
                 </div>

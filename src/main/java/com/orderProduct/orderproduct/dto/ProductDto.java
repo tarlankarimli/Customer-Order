@@ -11,7 +11,7 @@ public class ProductDto {
     private String name;
     private String description;
     private double price;
-    private String created;
+    private String updated;
 
     public Long getProductId() {
         return productId;
@@ -45,12 +45,12 @@ public class ProductDto {
         this.price = price;
     }
 
-    public String getCreated() {
-        return created;
+    public String getUpdated() {
+        return updated;
     }
 
-    public void setCreated(String created) {
-        this.created = created;
+    public void setUpdated(String updated) {
+        this.updated = updated;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class ProductDto {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", created='" + created + '\'' +
+                ", created='" + updated + '\'' +
                 '}';
     }
 }

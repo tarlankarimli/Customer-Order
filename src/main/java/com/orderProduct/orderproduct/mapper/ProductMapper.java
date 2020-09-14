@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 public class ProductMapper {
     private ModelMapper modelMapper;
     private final SimpleDateFormat dateFormat
-            = new SimpleDateFormat("yyyy-MM-dd");
+            = new SimpleDateFormat("MMM d, yyyy");
 
     public ProductMapper(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
@@ -19,7 +19,7 @@ public class ProductMapper {
 
 public ProductDto convertProductDto(Product product) {
         ProductDto productDto = modelMapper.map(product, ProductDto.class);
-    productDto.setCreated(dateFormat.format(product.getCreated()));
+    productDto.setUpdated(dateFormat.format(product.getUpdated()));
     return  productDto;
 }
 
