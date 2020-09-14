@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .id-visible {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="../navbar.jsp"></jsp:include>
@@ -24,7 +29,7 @@
 <div class="container">
     <%--@elvariable id="product" type="aj"--%>
     <form:form action="${ctx}/product/save" method="post" class="form" modelAttribute="product">
-        <div class="form-group">
+        <div class="form-group ${view}">
             <label for="name">ID</label>
             <input type="text" name="productId" id="id" ${view} value="${product.getProductId()}">
         </div>

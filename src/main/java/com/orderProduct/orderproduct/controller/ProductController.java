@@ -27,7 +27,7 @@ private ProductService productService;
     @RequestMapping(value = {"/product/new"}, method = RequestMethod.GET)
         public String productNew(Model model) {
             model.addAttribute("product", new Product());
-            model.addAttribute("idView", "readonly disabled");
+            model.addAttribute("idView", "id-visible");
             return "product/product-form";
         }
 // Add new product

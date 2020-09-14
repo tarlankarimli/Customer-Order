@@ -27,7 +27,7 @@
 
             <li><a href="${ctx}/product/list">PRODUCTS</a></li>
             <li><a href="${ctx}/product/new">ADD PRODUCT</a></li>
-            <li><a href="${ctx}/product/update/list">UPDATE PRODUCTS</a></li>
+            <li><a href="${ctx}/product/update/list">EDIT PRODUCT</a></li>
             <li><a href="${ctx}/cart">CART</a></li>
         </ul>
         <div class="text-right logout"><a class="btn btn-primary" href="${ctx}/logout">LOG OUT</a></div>
