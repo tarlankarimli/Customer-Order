@@ -37,6 +37,9 @@ public class CustomerController {
     @RequestMapping(value = {"/customer/save"}, method = RequestMethod.POST)
     public String customerSave(Model model, @ModelAttribute Customer customer, BindingResult bindingResult) {
         customerValidator.validate(customer, bindingResult);
+        if(bindingResult.hasErrors()){
+            return "customer/sign-up";
+        }
     customerService.customerSignup(customer);
     return "redirect:/signin";
     }

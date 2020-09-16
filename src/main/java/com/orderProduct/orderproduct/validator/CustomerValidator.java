@@ -20,13 +20,13 @@ public class CustomerValidator implements Validator {
       if(customer.getName().length()==0){
           errors.rejectValue("name","customer.name.length");
       }
-       else if(customer.getPhoneNumber().length()!=13 && customer.getPhoneNumber().substring(0,1) == "1"){
+       if(customer.getPhoneNumber().length()!=13){
             errors.rejectValue("phoneNumber","customer.phoneNumber.invalid");
         }
-       else if(!(customer.getEmail().contains("@") && customer.getEmail().contains("."))){
+       if(!(customer.getEmail().contains("@") && customer.getEmail().contains("."))){
             errors.rejectValue("email","customer.email.invalid");
         }
-       else if(customer.getPassword().length()<5 && testAllUpperCase(customer.getPassword())==false){
+      if(customer.getPassword().length()<5 && testAllUpperCase(customer.getPassword())==false){
             errors.rejectValue("password","customer.password.invalid");
         }
 

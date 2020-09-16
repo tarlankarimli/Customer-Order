@@ -16,8 +16,8 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
     public boolean customerAccountCheck(Customer customer) {
-        Customer cust = customerRepository.findUserByEmailAndPassword(customer.getEmail(),customer.getPassword());
-        if(cust.getEmail()==null && cust.getPassword()==null) {
+        Customer customerCheck = customerRepository.findUserByEmailAndPassword(customer.getEmail(),customer.getPassword());
+        if(customerCheck == null) {
             return false;
         }
         return true;
