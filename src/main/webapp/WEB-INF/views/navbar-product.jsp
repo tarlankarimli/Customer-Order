@@ -21,16 +21,13 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="${ctx}/product/list">1001 Xırdavat</a>
+            <a class="navbar-brand" href="${ctx}/product/update/list">Admin Panel</a>
         </div>
         <ul class="nav navbar-nav">
 
-            <li><a href="${ctx}/product/list">PRODUCTS</a></li>
             <li><a href="${ctx}/product/new">ADD PRODUCT</a></li>
             <li><a href="${ctx}/product/update/list">EDIT PRODUCT</a></li>
-            <li><a href="${ctx}/cart">CART</a></li>
         </ul>
-        <div class="text-right logout"><a class="btn btn-primary" href="${ctx}/logout">LOG OUT</a></div>
     </div>
 </nav>
 

@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:include page="../navbar.jsp"></jsp:include>
+<jsp:include page="../navbar-product.jsp"></jsp:include>
 <div class="container-fluid">
     <table class="table table-hover">
         <thead>

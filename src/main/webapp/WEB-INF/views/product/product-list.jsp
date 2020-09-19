@@ -12,10 +12,16 @@
         .bg-color {
             background: rgba(116, 211, 248, 0.215);
         }
+        .count {
+            margin-top: 1rem;
+            width: 100%;
+        }
     </style>
 </head>
 <body class=" bg-color">
-<jsp:include page="../navbar.jsp"></jsp:include>
+<jsp:include page="../navbar-customer.jsp"></jsp:include>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+
 <div class="container-fluid">
             <div class="row">
                 <c:forEach items="${productList}" var="product">
@@ -27,10 +33,15 @@
                         <div class="card-body">
                             <p class="card-text">${product.getDescription()}</p>
                             <h5 class="card-title">${product.getPrice()}</h5>
-                            <a href="#" class="btn btn-primary">Add to cart</a>
+                            <button type="button" class="btn btn-primary" onclick={addProduct('${product.getProductId()}')}>Add to cart</button>
                         </div>
                         <div class="card-footer text-muted">
                             ${product.getUpdated()}
+                        </div>
+                        <div class="count">
+                            <button type="button" onclick={minus('${product.getProductId()}')}>-</button>
+                            <span id="${product.getProductId()}" class="defValue"></span>
+                            <button type="button" onclick={plus('${product.getProductId()}')}>+</button>
                         </div>
                     </div>
                 </div>
@@ -39,5 +50,39 @@
         </tbody>
     </table>
 </div>
+<script>
+    let count = document.getElementsByClassName("defValue")
+    for (let i=0;i<count.length; i++) {
+        count[i].innerHTML=1;
+    }
+    function minus(id) {
+        count = parseInt(document.getElementById(id).innerHTML);
+        count--
+        if(count<1) return false
+        document.getElementById(id).innerHTML= count;
+        }
+
+    function plus(id) {
+        count = parseInt(document.getElementById(id).innerHTML);
+        count++
+        document.getElementById(id).innerHTML= count;
+    }
+let getquantity;
+    let getid;
+    let products = [];
+    function addProduct(id) {
+         getid=id;
+         getquantity = document.getElementById(id).innerText;
+         products.push({productId: getid, quantity: getquantity});
+    }
+</script>
+
+<%--<a href="${ctx}/order" onclick="goToCard(this)">Go To Card</a>--%>
+
+    <script>
+        function goToCard(e){
+            e.href = e.href + "?products=" + JSON.stringify(products);
+        }
+    </script>
 </body>
 </html>

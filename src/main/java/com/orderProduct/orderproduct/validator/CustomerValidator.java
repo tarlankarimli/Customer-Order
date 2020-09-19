@@ -35,11 +35,11 @@ public class CustomerValidator implements Validator {
         for(int i=0; i<str.length(); i++){
             char c = str.charAt(i);
             if(c >= 97 && c <= 122) {
-                return false;
+                return true;
             }
         }
         //str.charAt(index)
-        return true;
+        return false;
     }
 
 }

@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="../navbar.jsp"></jsp:include>
+<jsp:include page="../navbar-product.jsp"></jsp:include>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <c:set var="view" value="${idView}" />
 

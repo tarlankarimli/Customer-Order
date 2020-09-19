@@ -34,10 +34,10 @@ private ProductService productService;
     @RequestMapping(value = {"/product/save"}, method = RequestMethod.POST)
     public String productNew(@ModelAttribute("product") Product product) {
         productService.saveProduct(product);
-        return "redirect:/product/list";
+        return "redirect:/product/update/list";
     }
 //Update product list
-    @RequestMapping(value = {"/product/update/list"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/admin", "/product/update/list"}, method = RequestMethod.GET)
     public String productUpdateList(Model model) {
         model.addAttribute("productList", productService.getProductList());
         return "product/product-update-list";
@@ -49,6 +49,7 @@ private ProductService productService;
         model.addAttribute("idView","readonly");
         return "product/product-form";
     }
+//    Delete product
     @RequestMapping("/product/delete")
     public String productDelete(@RequestParam("id") Long id, Model model) {
         productService.deleteProduct(id);

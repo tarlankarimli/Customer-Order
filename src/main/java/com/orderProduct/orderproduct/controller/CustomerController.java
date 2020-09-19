@@ -23,7 +23,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @RequestMapping(value = {"/signup" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"/","/signup" }, method = RequestMethod.GET)
     public String signup(Model model) {
         model.addAttribute("customer", new Customer());
         return "customer/sign-up";
