@@ -33,15 +33,15 @@
                         <div class="card-body">
                             <p class="card-text">${product.getDescription()}</p>
                             <h5 class="card-title">${product.getPrice()}</h5>
-                            <button type="button" class="btn btn-primary" onclick={addProduct('${product.getProductId()}')}>Add to cart</button>
+                            <button type="button" id="btn-${product.getProductId()}" class="btn btn-primary" onclick={addProduct('${product.getProductId()}')}>Add to cart</button>
                         </div>
                         <div class="card-footer text-muted">
                             ${product.getUpdated()}
                         </div>
                         <div class="count">
-                            <button type="button" onclick={minus('${product.getProductId()}')}>-</button>
+                            <button type="button" id="btn-minus-${product.getProductId()}" onclick={minus('${product.getProductId()}')}>-</button>
                             <span id="${product.getProductId()}" class="defValue"></span>
-                            <button type="button" onclick={plus('${product.getProductId()}')}>+</button>
+                            <button type="button"  id="btn-plus-${product.getProductId()}" onclick={plus('${product.getProductId()}')}>+</button>
                         </div>
                     </div>
                 </div>
@@ -74,6 +74,11 @@ let getquantity;
          getid=id;
          getquantity = document.getElementById(id).innerText;
          products.push({productId: getid, quantity: getquantity});
+         document.getElementById("btn-"+id).disabled=true;
+         if(document.getElementById("btn-"+id).disabled=true) {
+             document.getElementById("btn-minus-"+id).disabled=true;
+             document.getElementById("btn-plus-"+id).disabled=true;
+         }
     }
 </script>
 
